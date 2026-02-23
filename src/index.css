@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* 1. Define your uploaded font */
+@font-face {
+  font-family: 'Staatliches';
+  src: url('./assets/Fonts/Staatliches-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@theme {
+  --font-veloce: "Staatliches", sans-serif;
+}
