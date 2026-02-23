@@ -110,7 +110,7 @@ export default function Header() {
                 key={item.label}
                 href={item.url}
                 ref={(el) => (navLinksRef.current[index] = el)}
-                className="font-Staatliches font-bold uppercase text-neutral-800 text-[10px] md:text-xs lg:text-[20px] font-bold hover:opacity-50 transition-opacity tracking-widest text-right md:text-left"
+                className="font-Staatliches font-bold uppercase text-neutral-800 text-[15px] md:text-xs lg:text-[20px] font-bold hover:opacity-50 transition-opacity tracking-widest text-right md:text-left"
               >
                 {item.label}
               </a>

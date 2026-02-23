@@ -10,7 +10,7 @@ export default function Hero() {
   const heroRef = useRef(null);
   const bgRef = useRef(null);
 
-  const h1TopRef = useRef(null); // Renamed to h1 for clarity
+  const h1TopRef = useRef(null);
   const topButtonRef = useRef(null);
   const h2BottomRef = useRef(null);
   const bottomButtonRef = useRef(null);
@@ -26,14 +26,13 @@ export default function Hero() {
 
   useGSAP(
     () => {
-      // 1. Immediate Entrance animation (Plays together AFTER the Header finishes)
-      // Grouping both refs in an array makes them animate at the exact same time
+      // 1. Immediate Entrance animation
       gsap.from([h1TopRef.current, topButtonRef.current], {
         y: 40,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        delay: 2.2, // Wait for the Header's 2-second timeline to finish before showing
+        delay: 2.2,
       });
 
       // 2. Parallax Scroll Effect for the Background Image
@@ -48,27 +47,28 @@ export default function Hero() {
         },
       });
 
-      // 3. Slow, Color-Shifting Scroll Trigger for Bottom Text
+      // 3. Scrub-based Color-Shifting Scroll Reveal for Bottom Text
+      // Changed to use "scrub" so it reveals exactly as you scroll
       gsap.fromTo(
         h2BottomRef.current.children,
         {
-          y: 60,
+          y: 0,
           opacity: 0,
           color: "#ffffff",
         },
         {
           y: 0,
           opacity: 1,
-          duration: 2,
-          stagger: 0.15,
-          ease: "power2.out",
+          stagger: 0.1,
+          ease: "none", // "none" is usually smoothest for scroll scrubbing
           keyframes: {
             color: ["#ffffff", "#CD9D65", "#000000"],
           },
           scrollTrigger: {
             trigger: bottomContentRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
+            start: "top 85%", // Starts revealing when the section enters the bottom 15% of screen
+            end: "center 50%", // Finishes revealing when the section hits the center of the screen
+            scrub: 1, // Ties the animation to the scrollbar with a 1-second smooth catch-up
           },
         },
       );
@@ -114,7 +114,7 @@ export default function Hero() {
             <a
               ref={topButtonRef}
               href={heroButtons.shop.url}
-              className="inline-block bg-black text-white font-Staatliches font-bold uppercase tracking-widest text-sm md:text-base lg:text-lg py-3 md:py-4 px-10 md:px-14 border-2 border-black hover:bg-neutral-600 hover:border-neutral-900 transition-colors duration-300 text-center"
+              className="inline-block bg-black text-[#CD9D65] py-2.5 font-Staatliches font-bold uppercase tracking-widest text-sm md:text-base lg:text-lg md:py-4 px-10 md:px-6 border-2 border-black hover:bg-neutral-600 hover:border-neutral-900 transition-colors duration-300 text-center"
               style={{ borderRadius: "50%" }}
             >
               {heroButtons.shop.label}
@@ -126,7 +126,7 @@ export default function Hero() {
       {/* Bottom White Section */}
       <div
         ref={bottomContentRef}
-        className="w-full bg-white py-12 px-[20px] md:p-16 lg:p-24 flex flex-col items-start z-10 relative"
+        className="w-full bg-white py-5 px-[20px] md:px-16 lg:pb-[100px] py-8 flex flex-col items-start z-10 relative "
       >
         <div className="max-w-5xl">
           <h2
@@ -143,7 +143,7 @@ export default function Hero() {
           <a
             ref={bottomButtonRef}
             href={heroButtons.about.url}
-            className="inline-block bg-transparent text-black font-Staatliches font-bold uppercase tracking-widest text-sm md:text-base lg:text-lg py-3 md:py-4 px-10 md:px-14 border-2 border-black hover:bg-neutral-800 hover:text-white hover:border-neutral-800 transition-colors duration-300 text-center"
+            className="inline-block bg-transparent text-black font-Staatliches font-bold uppercase tracking-widest text-sm md:text-base lg:text-lg py-3 md:py-4 px-10 md:px-8 border-2 border-black hover:bg-neutral-800 hover:text-white hover:border-neutral-800 transition-colors duration-300 text-center"
             style={{ borderRadius: "50%" }}
           >
             {heroButtons.about.label}
