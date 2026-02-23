@@ -93,7 +93,7 @@ export default function Header() {
           {/* Added `hidden md:block` to hide on mobile */}
           <p
             ref={taglineRef}
-            className="hidden md:block font-Staatliches font-bold uppercase tracking-wide text-black md:text-sm lg:text-[25px] self-top mb-[15vh] md:text-center lg:text-left"
+            className="hidden md:block font-Staatliches font-bold uppercase tracking-wide text-black md:mb-0 text-sm lg:text-[25px] self-top mb-[15vh] md:text-center lg:text-left"
           >
             The zero-proof aperitif for modern living.
           </p>
