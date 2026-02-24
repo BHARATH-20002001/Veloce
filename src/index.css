@@ -1,15 +1,24 @@
 @import "tailwindcss";
 
-/* 1. Define your uploaded font */
+/* 1. Define your uploaded fonts */
 @font-face {
-  font-family: 'Staatliches';
-  src: url('./assets/Fonts/Staatliches-Regular.ttf') format('ttf');
+  font-family: "Staatliches";
+  src: url("./assets/Fonts/Staatliches-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Jaro";
+  src: url("./assets/Fonts/Jaro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* 2. Map them to Tailwind v4 utility classes */
 @theme {
   --font-veloce: "Staatliches", sans-serif;
+  --font-jaro: "Jaro", sans-serif;
 }

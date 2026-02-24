@@ -9,6 +9,7 @@ import Hero from "./Components/Hero";
 import FeaturedProduct from "./Components/FeaturedProduct";
 import ProductGrid from "./Components/ProductGrid";
 import FindUs from "./Components/FindUs";
+import Footer from "./Components/Footer";
 
 // Register ScrollTrigger globally
 gsap.registerPlugin(ScrollTrigger);
@@ -48,6 +49,7 @@ export default function App() {
       <FeaturedProduct />
       <ProductGrid />
       <FindUs />
+      <Footer />
     </div>
   );
 }
