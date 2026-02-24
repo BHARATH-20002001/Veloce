@@ -7,6 +7,8 @@ import Lenis from "lenis";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import FeaturedProduct from "./Components/FeaturedProduct";
+import ProductGrid from "./Components/ProductGrid";
+import FindUs from "./Components/FindUs";
 
 // Register ScrollTrigger globally
 gsap.registerPlugin(ScrollTrigger);
@@ -44,6 +46,8 @@ export default function App() {
       <Header />
       <Hero />
       <FeaturedProduct />
+      <ProductGrid />
+      <FindUs />
     </div>
   );
 }

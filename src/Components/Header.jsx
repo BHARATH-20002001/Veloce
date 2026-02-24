@@ -75,11 +75,11 @@ export default function Header() {
   );
 
   return (
-    <header ref={headerRef} className="w-full flex flex-col bg-white">
+    <header ref={headerRef} className="w-full flex flex-col bg-white ">
       {/* Changed default alignment to `items-start` so the logo sits at the top left on mobile.
         It transitions to `items-center` on tablet and `items-end` on desktop. 
       */}
-      <div className="flex flex-row md:flex-col-reverse lg:flex-row items-start md:items-center lg:items-end justify-between w-full p-6 md:p-8 lg:px-12">
+      <div className="flex flex-row gap-10 md:flex-col-reverse lg:flex-row items-start md:items-center lg:items-end justify-between w-full p-6 md:p-8 lg:px-12">
         <div className="w-[40%] md:w-full lg:w-[50%] pr-4 md:pr-0 lg:pr-4 md:mt-8 lg:mt-0 flex justify-start md:justify-center lg:justify-start">
           <img
             ref={logoRef}
@@ -93,7 +93,7 @@ export default function Header() {
           {/* Added `hidden md:block` to hide on mobile */}
           <p
             ref={taglineRef}
-            className="hidden md:block font-Staatliches font-bold uppercase tracking-wide text-black md:mb-0 text-sm lg:text-[25px] self-top mb-[15vh] md:text-center lg:text-left"
+            className="hidden md:block font-Staatliches font-bold uppercase tracking-wide text-black md:mb-0 text-sm lg:text-[25px] self-top md:text-center lg:text-left"
           >
             The zero-proof aperitif for modern living.
           </p>
